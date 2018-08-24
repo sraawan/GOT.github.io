@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card text-center">     
+        <div class="card-header" *ngIf="houseId.name!=''"><b>Name: </b>{{houseId.name}}</div> 
+        <div class="card-text">
+        <div *ngIf="houseId.coatOfArms!=''"><b>coatOfArms: </b>{{houseId.coatOfArms}}</div>
+        <div *ngIf="houseId.seats!=''"><b>Seats: </b>{{houseId.seats}}</div>
+        <div *ngIf="houseId.words!=''"><b>Words: </b>{{houseId.words}}</div>
+        <div *ngIf="houseId.region!=''"><b>Region: </b>{{houseId.region}}</div>
+        <div *ngIf="houseId.swornMembers!=''"><b>Sworn Members : </b> <span *ngFor="let s of houseId.swornMembers"><a [routerLink]="['/cha',s.split('api/').pop()]">{{s}}</a><br></span>
+    </div>
+    <a [routerLink]="['/home']"><button><b>Home</b></button></a> 
+    
+    
+  </div>
+  </div>

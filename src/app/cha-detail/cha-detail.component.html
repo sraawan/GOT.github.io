@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row" >
+   <div class="col-md-12 text-center" >
+   <div class="card">
+     <div class="card-header" *ngIf="chaId.name!=''">{{chaId.name}}</div>
+     <div class="card-body">
+       <div class="card-text">
+         <div *ngIf="chaId.aliases!=''"><b>Aliases:</b>{{chaId.aliases}}</div><br>
+         <div *ngIf= "chaId.allegiances!=''"><b>Allegiances:</b><span *ngFor="let x  of chaId.allegiances"><a [routerLink]="['/house',x.split('api/').pop()]">{{x}}</a><br></span></div>
+         <div *ngIf="chaId.books!=''"><b>Books:</b><span *ngFor="let ch of chaId.books"><a [routerLink]="['/books',ch.split('api/').pop()]">{{ch}}</a><br></span>
+         </div>
+         
+       </div>
+     </div>
+     </div>
+     </div>
+     </div>
+     </div>

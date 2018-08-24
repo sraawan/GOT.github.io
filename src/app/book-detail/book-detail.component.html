@@ -1,0 +1,21 @@
+<div class="container">
+ <div class="row" >
+<div class="col-md-12 text-center" >
+<div class="card">
+<div class ="card-header" *ngIf="BooksId.name!=''"><h5>{{BooksId.name}}</h5></div>
+<div class="card-text">
+<div *ngIf="BooksId.name!=''"><b>Name:</b> {{BooksId.name}}</div><br>
+<div *ngIf="BooksId.publisher!=''"><b>Publisher:</b> {{BooksId.publisher}}</div><br>
+<div *ngIf="BooksId.country!=''"><b>Country:</b> {{BooksId.country}}</div>
+
+<div *ngIf="BooksId.characters!=''">
+    <b>Character:</b><span *ngFor= "let i of BooksId.characters"><a [routerLink]="['/cha',i.split('api/').pop()]">{{i}}</a><br></span>
+</div>
+
+</div>
+<a [routerLink]="['/home']"><button><b>Home</b></button></a> 
+</div>
+</div>
+ </div>
+ </div>
+

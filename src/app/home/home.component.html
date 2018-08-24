@@ -1,0 +1,58 @@
+
+<div class="container">
+    <div class="row">      
+      <div class="col-auto">
+        <div class="dropdown"><b>Select:</b>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Categories
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <!-- calling respective fucntions on clicking -->
+            <a class="dropdown-item" style="cursor:pointer;" (click)="ngOnInit()">All</a>
+            <a class="dropdown-item" style="cursor:pointer;" (click)="getBooks()">Books</a>
+            <a class="dropdown-item" style="cursor:pointer;" (click)="getCha()">Characters</a>
+            <a class="dropdown-item" style="cursor:pointer;" (click)="getHouse()">Houses</a>
+            
+          </div>
+        </div>
+      </div>
+
+<div class="container"  >
+    <div class="row">
+     <div  class ="col-sm-3" *ngFor="let api of allData">
+       <div *ngIf="api.isbn" class="card text-center"   >  
+          <div class="card-header"><p>{{api.name }}</p></div>
+          <div class= "card-body">
+          <div class="card-text" *ngIf="api.isbn!=''">
+            ISBN : {{api.isbn}}<br>
+            Released: {{api.released | date}}<br>
+            Authors: {{api.authors}}
+          </div>
+           <a  class="btn btn-primary" [routerLink]="['/books',api.url.split('api/').pop()]" href="">Readmore</a>    
+      </div>
+    </div>
+      <div *ngIf="api.gender" class="card text-center charater"> 
+          <div class="card-header"><h5>{{api.gender}}</h5></div>
+          <div class="card-text">
+          <div *ngIf="api.aliases!=''">Aliases : {{api.aliases}}</div>
+          <div *ngIf="api.name!=''">Name : {{api.name}}</div>
+          <div *ngIf="api.culture!=''">Culture : {{api.culture}}</div>
+          <div *ngIf="api.born!=''">Born : {{api.born}}</div>
+          <a  class="btn btn-primary" [routerLink]="['/cha',api.url.split('api/').pop()]" href="">Readmore</a>
+          </div></div>
+          
+   <div *ngIf = "api.region" class="card text-center house">
+    <div class= card-header><h5>{{api.name}}</h5></div>
+    <div class="card-text">
+        <div *ngIf="api.region!=''">Region : {{api.region}}</div>
+        <div *ngIf="api.words!=''">words : {{api.words}}</div>
+        <a  class="btn btn-primary" [routerLink]="['/house',api.url.split('api/').pop()]" href="">Readmore</a>
+
+    </div>
+
+   </div>
+     </div>    
+    </div>
+    
+   </div>
